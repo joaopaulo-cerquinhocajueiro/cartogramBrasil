@@ -40,6 +40,7 @@ function parseData(data){
 window.addEventListener("load",function(){
     var a = document.getElementById("svgMap");
     var svgDoc = a.getSVGDocument();
+    var s = Snap(svgDoc);
     // console.log(svgDoc);
     var tamanho = svgDoc.getElementById("estados");
     tamanho.setAttribute("visibility", "visible");
@@ -56,6 +57,11 @@ window.addEventListener("load",function(){
     // console.log(dadosEstados);
     for(var nome in dadosEstados){
         // console.log(nome);
+        dadosEstados[nome]["sestado"] = s.select("#"+nome);
+        dadosEstados[nome]["destado"] = dadosEstados[nome].sestado.node.getAttribute('d');
+        dadosEstados[nome]["dpib"] = s.select("#pib_"+nome).node.getAttribute('d');
+        dadosEstados[nome]["dpop"] = s.select("#pop_"+nome).node.getAttribute('d');
+        // sestado.animate({d: dpib},2000,mina.backout);
         let estado = svgDoc.getElementById(nome);
         estado.addEventListener("mousemove",function(evt){
             var atual = evt.srcElement.id;
@@ -119,19 +125,40 @@ window.addEventListener("load",function(){
     }
 
     document.getElementById("tamanho").addEventListener("change",function(){
-        tamanho.setAttribute("visibility", "visible");
-        pop.setAttribute("visibility", "hidden");
-        pib.setAttribute("visibility", "hidden");        
+        for(estado in dadosEstados){
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].destado},2000);
+        }
+        // tamanho.setAttribute("visibility", "visible");
+        // pop.setAttribute("visibility", "hidden");
+        // pib.setAttribute("visibility", "hidden");        
     })
     
     document.getElementById("PIB").addEventListener("change",function(){
-        tamanho.setAttribute("visibility", "hidden");
-        pop.setAttribute("visibility", "hidden");
-        pib.setAttribute("visibility", "visible");        
+        for(estado in dadosEstados){
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpib},2000);
+            let est = svgDoc.getElementById(estado);
+            est.addEventListener("mousemove",function(evt){
+                var atual = evt.srcElement.id;
+                // console.log(dadosEstados[atual]["Unidade federativa"] +'\n' + dadosEstados[atual]["Área (km²)"] +' km²');
+                ShowTooltip(evt, dadosEstados[atual]["Unidade federativa"],"R$"+dadosEstados[atual]["PIB (2015)"]+" bilhões");
+            }, false);
+        }
+        // tamanho.setAttribute("visibility", "hidden");
+        // pop.setAttribute("visibility", "hidden");
+        // pib.setAttribute("visibility", "visible");        
     })
     document.getElementById("pop").addEventListener("change",function(){
-        tamanho.setAttribute("visibility", "hidden");
-        pop.setAttribute("visibility", "visible");
-        pib.setAttribute("visibility", "hidden");        
+        for(estado in dadosEstados){
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpop},2000);
+            let est = svgDoc.getElementById(estado);
+            est.addEventListener("mousemove",function(evt){
+                var atual = evt.srcElement.id;
+                // console.log(dadosEstados[atual]["Unidade federativa"] +'\n' + dadosEstados[atual]["Área (km²)"] +' km²');
+                ShowTooltip(evt, dadosEstados[atual]["Unidade federativa"],dadosEstados[atual]["População (2014)"]+" hab.");
+            }, false);
+        }
+    //     tamanho.setAttribute("visibility", "hidden");
+    //     pop.setAttribute("visibility", "visible");
+    //     pib.setAttribute("visibility", "hidden");        
     })
 });

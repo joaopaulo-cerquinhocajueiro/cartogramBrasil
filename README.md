@@ -1,8 +1,8 @@
 # Cartogramas do Brasil
 
-Cartogramas são representações de dados por meio de mapas distorcidos, onde a área de cada região passa a corresponder a uma variável específica.
+Cartogramas são representações de dados por meio de mapral e 2 cartogramas, um que transforma a área de cada estado de acordo com a população e outro que as distorcidos, onde a área de cada região passa a corresponder a uma variável específica.
 
-Aqui se apresentam um mapa convencional, com a divisão do Brasil em estados e Distrtito Federal e 2 cartogramas, um que transforma a área de cada estado de acordo com a população e outro que usa o PIB de cada estado.
+Aqui se apresentam um mapa convencional, com a divisão do Brasil em estados e Distrtito Fedeusa o PIB de cada estado.
 
 ## Ombro de gigantes
 
