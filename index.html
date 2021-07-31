@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<meta charset="UTF-8">
+<title>Cartograma do Brasil</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="stylesheet.css">
+<style>
+</style>
+<!-- <script language="javascript" type="text/javascript" src="svg.min.js"></script> -->
+<script src="cartogramChange.js"></script>
+<body>
+
+<div class="">
+ <h1>Cartogramas do Brasil</h1>
+</div>
+<div class="flex-container">
+    <div id="mapa", style="width: 70%;">
+        <object data="cartograma.svg" type="image/svg+xml"
+         id="svgMap" width="100%" height="100%"></object>
+    </div>
+    <div id="tipo", class="menuBox",style="width: 30%;">
+        <div>
+            <input type="radio" id="tamanho" name="tipo" value="tamanho" checked></input>
+            <label for="tamanho">Área</label>
+        </div>
+        <div>
+            <input type="radio" id="pop" name="tipo" value="pop"></input>
+            <label for="pop">População</label>
+        </div>
+        <div>
+            <input type="radio" id="PIB" name="tipo" value="pib"></input>
+            <label for="PIB">PIB</label>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
