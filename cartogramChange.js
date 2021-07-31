@@ -126,7 +126,13 @@ window.addEventListener("load",function(){
 
     document.getElementById("tamanho").addEventListener("change",function(){
         for(estado in dadosEstados){
-            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].destado},2000);
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].destado},3000);
+            let est = svgDoc.getElementById(estado);
+            est.addEventListener("mousemove",function(evt){
+                var atual = evt.srcElement.id;
+                // console.log(dadosEstados[atual]["Unidade federativa"] +'\n' + dadosEstados[atual]["Área (km²)"] +' km²');
+                ShowTooltip(evt, dadosEstados[atual]["Unidade federativa"],dadosEstados[atual]["Área (km²)"] +' km²');
+            }, false);
         }
         // tamanho.setAttribute("visibility", "visible");
         // pop.setAttribute("visibility", "hidden");
@@ -135,7 +141,7 @@ window.addEventListener("load",function(){
     
     document.getElementById("PIB").addEventListener("change",function(){
         for(estado in dadosEstados){
-            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpib},2000);
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpib},3000);
             let est = svgDoc.getElementById(estado);
             est.addEventListener("mousemove",function(evt){
                 var atual = evt.srcElement.id;
@@ -149,7 +155,7 @@ window.addEventListener("load",function(){
     })
     document.getElementById("pop").addEventListener("change",function(){
         for(estado in dadosEstados){
-            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpop},2000);
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpop},3000);
             let est = svgDoc.getElementById(estado);
             est.addEventListener("mousemove",function(evt){
                 var atual = evt.srcElement.id;
