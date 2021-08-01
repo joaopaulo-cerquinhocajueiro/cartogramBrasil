@@ -126,7 +126,7 @@ window.addEventListener("load",function(){
 
     document.getElementById("tamanho").addEventListener("change",function(){
         for(estado in dadosEstados){
-            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].destado},3000);
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].destado},1000);
             let est = svgDoc.getElementById(estado);
             est.addEventListener("mousemove",function(evt){
                 var atual = evt.srcElement.id;
@@ -141,7 +141,7 @@ window.addEventListener("load",function(){
     
     document.getElementById("PIB").addEventListener("change",function(){
         for(estado in dadosEstados){
-            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpib},3000);
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpib},1000);
             let est = svgDoc.getElementById(estado);
             est.addEventListener("mousemove",function(evt){
                 var atual = evt.srcElement.id;
@@ -155,7 +155,7 @@ window.addEventListener("load",function(){
     })
     document.getElementById("pop").addEventListener("change",function(){
         for(estado in dadosEstados){
-            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpop},3000);
+            dadosEstados[estado].sestado.animate({d: dadosEstados[estado].dpop},1000);
             let est = svgDoc.getElementById(estado);
             est.addEventListener("mousemove",function(evt){
                 var atual = evt.srcElement.id;
