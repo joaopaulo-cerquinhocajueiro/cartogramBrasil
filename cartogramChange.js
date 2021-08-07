@@ -69,10 +69,11 @@ window.addEventListener("load",function(){
             ShowTooltip(evt, dadosEstados[atual]["Unidade federativa"],dadosEstados[atual]["Área (km²)"] +' km²');
         }, false);
         estado.addEventListener("mouseout",function(evt){
+            var atual = evt.srcElement.id;
             leg2.setAttribute("visibility", "hidden");
             leg1.setAttribute("visibility", "hidden");
             // console.log(tooltip)
-            evt.target.style.fill = '#00AF00';
+            evt.target.style.fill = dadosEstados[atual]["cor"];
         },false);
         // console.log('pop_'+nome);
         let popestado = svgDoc.getElementById('pop_'+nome);
